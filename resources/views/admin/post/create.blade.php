@@ -7,7 +7,20 @@
         <div class="w-60">
             @include('admin.includes.sidebar')
         </div>
-        <form>
+
+
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
+        <form action="{{ route('admin.posts.store') }}" method="POST" enctype="multipart/form-data">
+            @csrf
             <div class="flex-1 p-6">
                 <div class="p-6 mb-6 ">
                     <h1 class="text-2xl font-bold">Создание поста</h1>
@@ -17,7 +30,9 @@
                     <div class="relative">
                         <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
                         </div>
-                        <input type="search" id="default-search" class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Название поста" required />
+                        <input name="title" type="search" id="default-search"
+                               class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                               placeholder="Название поста" required/>
                     </div>
                 </form>
                 <div class="form-group mt-3">
@@ -26,26 +41,21 @@
                     <div class="text-danger">Это поле необходимо для заполнения</div>
                     @enderror
                 </div>
-                <div class="form-group">
-                    <div class="mt-3">
-                        <label for="countries" class="block mb-2 text-xl font-bold text-black-100">Выберите категорию</label>
-                        <select id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                            <option selected>Категории</option>
-                            @foreach($categories as $category )
-                            <option>{{ $category->title }}</option>
-                            @endforeach
-                        </select>
+                <div class="form-group mt-3" >
+                    <label for="countries" class="block mb-2 text-xl font-bold text-black-100">Выберите категорию</label>
+                    <div id="multi-select-category">
                     </div>
                 </div>
                 <div class="form-group mt-3">
+                    <label for="countries" class="block mb-2 text-xl font-bold text-black-100">Выберите теги</label>
                     <div id="multiselect-container"></div>
                 </div>
-
                 <div class="form-group mt-3">
                     <label for="countries" class="block mb-2 text-xl font-bold text-black-100">Выберите картинку</label>
                     <div id="selectimage-container"></div>
+                    <input type="hidden" name="main_image" v-model="selectimage">
                 </div>
-                <div  class="form-group">
+                <div class="form-group">
                     <input class="mt-10 text-white bg-gray-900 p-3 rounded-md" type="submit" value="Создать">
                 </div>
             </div>

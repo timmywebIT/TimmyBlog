@@ -10,6 +10,9 @@
             label="title"
             track-by="id"
         />
+        <div v-for="tagId in selectedIds" :key="tagId">
+            <input type="hidden" name="tag_ids[]" :value="tagId" />
+        </div>
     </div>
 </template>
 
@@ -26,6 +29,13 @@ export default {
             options: []
         }
     },
+
+    computed: {
+        selectedIds() {
+            return this.selected.map(tag => tag.id) //Преобразует каждый объект в его id
+        }
+    },
+
     async created() {
         try {
             const responce = await axios.get('/api/admin/tags') //Получаем все тэги которые из БД
