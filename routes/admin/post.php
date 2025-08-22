@@ -1,12 +1,11 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-
-use App\Http\Controllers\Admin\Post\IndexController;
 use App\Http\Controllers\Admin\Post\CreateController;
-use App\Http\Controllers\Admin\Post\StoreController;
 use App\Http\Controllers\Admin\Post\DeleteController;
+use App\Http\Controllers\Admin\Post\IndexController;
 use App\Http\Controllers\Admin\Post\ShowController;
+use App\Http\Controllers\Admin\Post\StoreController;
+use Illuminate\Support\Facades\Route;
 
 Route::prefix('post')->name('posts.')->group(function () {
     Route::get('/', IndexController::class)->name('index');

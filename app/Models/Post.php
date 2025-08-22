@@ -23,6 +23,10 @@ class Post extends Model
         return $this->belongsTo(Category::class);
     }
 
+    public function likes() {
+        return $this->belongsToMany(User::class, 'post_user_likes', 'post_id', 'user_id') ->withTimestamps();
+    }
+
     public function getTagTitlesAttribute()
     {
         //$this->tags — коллекция тегов.

@@ -30,8 +30,13 @@
                     </div>
                     <a href="{{ route('admin.posts.show', $post->id) }}">Подробнее</a>
                 </div>
+
+                <div class="like-button-container"
+                     data-post-id="{{ $post->id }}"
+                     data-initial-liked="{{ $post->likes->contains(auth()->id()) ? 'true' : 'false' }}"
+                     data-initial-count="{{ $post->likes_count ?? 0 }}">
+                </div>
             </div>
         @endforeach
     </div>
-
 @endsection

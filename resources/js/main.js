@@ -16,6 +16,7 @@ import CreateTag from './components/CreateTag.vue'
 import TagList from './components/TagList.vue'
 import CategoriesList from './components/CategoriesList.vue'
 import MultiSelectCategory from './components/MultiSelectCategory.vue'
+import LikeButton from './components/LikeButton.vue'
 
 
 createApp(TagList).mount('#tag-list-app')
@@ -31,10 +32,18 @@ createApp(CategoriesList).mount('#list-categories')
 createApp(MultiSelectCategory).mount('#multi-select-category')
 
 
+
+document.querySelectorAll('.like-button-container').forEach(el => {
+    createApp(LikeButton, {
+        postId: Number(el.dataset.postId),
+        initialLiked: el.dataset.initialLiked === 'true',
+        initialCount: Number(el.dataset.initialCount)
+    }).mount(el);
+});
+
 const imageApp = createApp(SelectImage)
 imageApp.use(Vueform, vueformConfig) // нужно только для Vueform
 imageApp.mount('#selectimage-container')
 
 // регистрируем Vueform с конфигом
-app.use(Vueform, vueformConfig)
-app.mount('#app')
+

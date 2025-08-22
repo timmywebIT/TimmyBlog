@@ -16,4 +16,5 @@ class PostSeeder extends Seeder
     {
         Post::factory()->count(10)->create();
     }
+    
 }
