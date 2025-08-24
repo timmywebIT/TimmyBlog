@@ -4,17 +4,15 @@
 
 @section('content')
 
-    <div class="flex flex-wrap gap-6 justify-center p-4 ">
+    <div class="flex flex-wrap justify-start gap-6 p-5 ">
         @foreach($posts as $post)
-
-            <div class=" dark:bg-gray-800 shadow rounded-lg overflow-hidden w-72 flex flex-col">
+            <div class=" dark:bg-gray-800 shadow rounded-lg overflow-hidden w-80 flex flex-col ">
                 <!-- Картинка сверху -->
                 @if($post->main_image)
                     <img src="{{ asset('storage/' . $post->main_image) }}"
                          alt="{{ $post->title }}"
                          class="w-full h-40 object-cover">
                 @endif
-
                 <!-- Контент снизу -->
                 <div class="p-4 flex flex-col flex-1 justify-between">
                     <!-- Заголовок и теги -->
@@ -24,17 +22,16 @@
                             Теги: {{ $post->tagTitles ?: '-' }}
                         </p>
                     </div>
-                    <!-- Контент -->
-                    <div class="text-gray-800 dark:text-gray-200 text-sm mt-2">
-                        {!! $post->content !!}
+                    <div class="mt-4">
+                        <a class="text-white " href="{{ route('show', $post->id) }}">Подробнее</a>
                     </div>
-                    <a href="{{ route('admin.posts.show', $post->id) }}">Подробнее</a>
                 </div>
-
-                <div class="like-button-container"
-                     data-post-id="{{ $post->id }}"
-                     data-initial-liked="{{ $post->likes->contains(auth()->id()) ? 'true' : 'false' }}"
-                     data-initial-count="{{ $post->likes_count ?? 0 }}">
+                <div class="ml-5 text-white">
+                    <div class="like-button-container"
+                         data-post-id="{{ $post->id }}"
+                         data-initial-liked="{{ $post->likes->contains(auth()->id()) ? 'true' : 'false' }}"
+                         data-initial-count="{{ $post->likes_count ?? 0 }}">
+                    </div>
                 </div>
             </div>
         @endforeach

@@ -6,12 +6,11 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 
 
-class BlogController extends Controller
+class PortfolioController extends Controller
 {
     public function __invoke()
     {
-        $categories = Category::all();
-        return view('main.blog', compact('categories'));
+        return view('main.portfolio');
 
     }
 }

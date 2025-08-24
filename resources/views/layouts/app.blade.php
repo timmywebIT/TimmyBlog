@@ -50,32 +50,30 @@
             <div class="site-navigation">
                 <div class="row g-0 align-items-center">
                     <div class="col-2">
-                        <a href="{{ route('main.index') }}" class="logo m-0 float-start">TimmyBlog<span class="text-primary">.</span></a>
+                        <a href="{{ route('main') }}" class="logo m-0 float-start">TimmyBlog<span
+                                class="text-primary">.</span></a>
                     </div>
                     <div class="col-8 text-center">
 
                         <ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu mx-auto">
-                            <li class="active"><a href="{{ route('main.index') }}">Главная</a></li>
-                            <li class="active"><a href="{{route('blog.index')}}">Посты</a></li>
+                            <li class="active"><a href="{{ route('main') }}">Главная</a></li>
+                            <li class="active"><a href="{{route('portfolio')}}">Портфолио</a></li>
                         </ul>
                     </div>
                     <div class="col-2 text-end">
                         <div>
                             @guest()
-                                <a class="text-white" href="{{ route('login') }}">Вход</a>
-                                <a class="text-white" href="{{ route('register') }}">Регистрация</a>
+                                {{-- Показываем вход/регистрацию только для админа --}}
+                                @if ((request()->get('admin') ?? false) || config('app.debug'))
+                                    <a class="text-white" href="{{ route('login') }}">Вход</a>
+                                @endif
+                            @endguest
                         </div>
-                        @endguest()
-
                         @auth
                             @if ((int) auth()->user()->role === \App\Models\User::ROLE_ADMIN)
                                 <a class="text-white" href="{{ route('admin.index') }}">Личный кабинет</a>
-                            @else
-                                <a class="text-white" style="color: #0d0d0d" href="{{ route('personal.index') }}">Личный
-                                    кабинет</a>
                             @endif
                         @endauth
-
                     </div>
                 </div>
             </div>
@@ -86,7 +84,6 @@
 <main>
     @yield('content')
 </main>
-
 
 
 <!-- Preloader -->
