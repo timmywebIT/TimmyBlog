@@ -26,62 +26,14 @@
     <link rel="stylesheet" href="{{asset('css/custom-multiselect.css')}}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/summernote/dist/summernote-bs4.min.css" rel="stylesheet">
-
-
     <link rel="stylesheet" href="{{asset('css/flatpickr.min.css')}}">
     @vite(['resources/css/auth.css', 'resources/js/main.js'])
 
 </head>
 <body>
 
-<div class="site-mobile-menu site-navbar-target">
-    <div class="site-mobile-menu-header">
-        <div class="site-mobile-menu-close">
-            <span class="icofont-close js-menu-toggle"></span>
-        </div>
-    </div>
-    <div class="site-mobile-menu-body"></div>
-</div>
 
-<nav class="site-nav">
-    <div class="container">
-        <div class="menu-bg-wrap">
-            <div class="site-navigation">
-                <div class="row g-0 align-items-center">
-                    <div class="col-2">
-                        <a href="#" class="logo m-0 float-start">TimmyBlog<span
-                                class="text-primary">.</span></a>
-                    </div>
-                    <div class="col-8 text-center">
-
-                        <ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu mx-auto">
-                            <li class="active"><a href="#">Главная</a></li>
-                            <li class="active"><a href="#">Портфолио</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-2 text-end">
-                        <div>
-                            @guest()
-                                {{-- Показываем вход/регистрацию только для админа --}}
-                                @if ((request()->get('admin') ?? false) || config('app.debug'))
-                                    <a class="text-white" href="{{ route('login') }}">Вход</a>
-                                @endif
-                            @endguest
-                        </div>
-                        @auth
-                            @if ((int) auth()->user()->role === \App\Models\User::ROLE_ADMIN)
-                                <a class="text-white" href="{{ route('admin.index') }}">Личный кабинет</a>
-                            @endif
-                        @endauth
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</nav>
-
-    <div id="app">fdsf</div>
-
+    <div id="app"></div>
 
 
 <!-- Preloader -->

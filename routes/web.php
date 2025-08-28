@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Middleware\ReaderMiddleware;
+//use App\Http\Middleware\ReaderMiddleware;
 
 //admin
 //Route::prefix('admin')->name('admin.')->middleware('auth', AdminMiddleware::class)->group(function () {

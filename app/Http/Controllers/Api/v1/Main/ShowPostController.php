@@ -8,10 +8,11 @@ use App\Models\Post;
 
 class ShowPostController extends Controller
 {
-    public function __invoke(Post $post)
+    public function __invoke($id)
     {
 
-        return view('pages.show', compact('post'));
+        $post = Post::findOrFail($id);
+        return response()->json(['data' => $post]);
 
     }
 }
