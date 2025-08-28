@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Admin\Category\web\IndexController;
+use App\Http\Controllers\Api\v1\Admin\Category\web\IndexController;
 use Illuminate\Support\Facades\Route;
 
 

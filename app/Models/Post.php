@@ -13,6 +13,8 @@ class Post extends Model
 
     protected $table = 'posts';
 
+    protected $appends = [];
+
     protected $guarded = false;
 
     public function tags() {

@@ -7,8 +7,6 @@
         <div class="w-60">
             @include('admin.includes.sidebar')
         </div>
-
-
         @if ($errors->any())
             <div class="alert alert-danger">
                 <ul>

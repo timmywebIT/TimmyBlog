@@ -29,9 +29,8 @@
 
 
     <link rel="stylesheet" href="{{asset('css/flatpickr.min.css')}}">
-    @vite(['resources/css/auth.css', 'resources/css/main.css', 'resources/js/main.js'])
+    @vite(['resources/css/auth.css', 'resources/js/main.js'])
 
-    <title>@yield('title')</title>
 </head>
 <body>
 
@@ -50,14 +49,14 @@
             <div class="site-navigation">
                 <div class="row g-0 align-items-center">
                     <div class="col-2">
-                        <a href="{{ route('main') }}" class="logo m-0 float-start">TimmyBlog<span
+                        <a href="#" class="logo m-0 float-start">TimmyBlog<span
                                 class="text-primary">.</span></a>
                     </div>
                     <div class="col-8 text-center">
 
                         <ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu mx-auto">
-                            <li class="active"><a href="{{ route('main') }}">Главная</a></li>
-                            <li class="active"><a href="{{route('portfolio')}}">Портфолио</a></li>
+                            <li class="active"><a href="#">Главная</a></li>
+                            <li class="active"><a href="#">Портфолио</a></li>
                         </ul>
                     </div>
                     <div class="col-2 text-end">
@@ -81,9 +80,8 @@
     </div>
 </nav>
 
-<main>
-    @yield('content')
-</main>
+    <div id="app">fdsf</div>
+
 
 
 <!-- Preloader -->
