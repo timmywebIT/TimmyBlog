@@ -3,11 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\ReaderMiddleware;
 
-
-Route::get('/{any}', function () {
-    return view('layouts.app'); // app.blade.php
-})->where('any', '.*');
-
 //admin
 //Route::prefix('admin')->name('admin.')->middleware('auth', AdminMiddleware::class)->group(function () {
 ////    require __DIR__ . '/admin/main.php';
@@ -17,4 +12,6 @@ Route::get('/{any}', function () {
 //});
 
 
-
+Route::fallback(function () {
+    return view('layouts.app');
+});
