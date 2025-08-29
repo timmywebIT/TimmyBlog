@@ -74,13 +74,13 @@ defineOptions({
     display: flex;
     flex-direction: column;
     font-size: 20px;
-    gap: 1em;
+    gap: 1.2em;
 }
 
 .menu-item {
     display: flex;
     align-items: center;
-    gap: 0.3em;
+    gap: 0.4em;
 }
 
 .menu-item svg {
