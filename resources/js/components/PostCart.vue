@@ -5,7 +5,7 @@
         </div>
         <div class="post-card cursor-pointer">
             <div class="ml-3" v-for="post in postStore.posts" :key="post.id">
-                <router-link :to="{name: 'index.show', params:{id: post.id }}">
+                <router-link :to="{name: 'main.show', params:{id: post.id }}">
                     <img :src="getImageURL(post.main_image)" alt="Картинка поста" class="w-full h-auto rounded shadow"/>
                     <h2 class="post-cart-title">{{ post.title }}</h2>
                 </router-link>

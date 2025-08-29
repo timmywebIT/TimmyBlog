@@ -6,17 +6,22 @@ const router = createRouter({
         {
             path: '/index',
             component: () => import('../views/pages/main/index.vue'),
-            name: 'main.index'
+            name: 'main.home'
         },
         {
             path: '/index/show/:id',
             component: () => import('../views/pages/main/show.vue'),
-            name: 'index.show'
+            name: 'main.show'
         },
         {
-            path: '/admin/index',
+            path: '/admin/dashboard',
             component: () => import('../views/pages/admin/dashboard/index.vue'),
-            name: 'admin.index'
+            name: 'admin.dashboard.index'
+        },
+        {
+            path: '/admin/posts',
+            component: () => import('../views/pages/admin/posts/index.vue'),
+            name: 'admin.posts.index'
         },
     ]
 })

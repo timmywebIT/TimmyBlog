@@ -50,12 +50,11 @@ defineOptions({
 <style scoped>
 
 .header-title {
-    font-size: 30px;
+    font-size: 22px;
     font-weight: bold;
     margin-left: 0.5em;
-   
-}
 
+}
 
 .container-aside {
     width: 18%;
