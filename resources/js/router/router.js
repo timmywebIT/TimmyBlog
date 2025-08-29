@@ -13,6 +13,11 @@ const router = createRouter({
             component: () => import('../views/pages/main/show.vue'),
             name: 'index.show'
         },
+        {
+            path: '/admin/index',
+            component: () => import('../views/pages/admin/dashboard/index.vue'),
+            name: 'admin.index'
+        },
     ]
 })
 
