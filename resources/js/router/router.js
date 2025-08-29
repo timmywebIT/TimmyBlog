@@ -23,6 +23,11 @@ const router = createRouter({
             component: () => import('../views/pages/admin/posts/index.vue'),
             name: 'admin.posts.index'
         },
+        {
+            path: '/admin/posts/create',
+            component: () => import('../views/pages/admin/posts/create.vue'),
+            name: 'admin.posts.create'
+        },
     ]
 })
 
