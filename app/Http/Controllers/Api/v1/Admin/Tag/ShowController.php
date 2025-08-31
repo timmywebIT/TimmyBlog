@@ -10,7 +10,7 @@ class ShowController extends Controller
 {
     public function __invoke()
     {
-        return TagResource::collection(Tag::all());
+         return response()->json('Тут показываем');
     }
 }
 
