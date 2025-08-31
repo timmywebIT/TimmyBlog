@@ -27,7 +27,7 @@ Route::post('/logout', [AuthController::class, 'logout']);
 //Route::delete('/posts/{post}/like', [DeleteLikeController::class, 'deleteLike']);
 
 Route::prefix('v1')->group(function () {
-    require base_path('routes/api_v1.php');
+    require __DIR__.'/api/v1/tag.php';
 });
 
 

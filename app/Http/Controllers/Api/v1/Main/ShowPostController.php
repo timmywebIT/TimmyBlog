@@ -10,9 +10,8 @@ class ShowPostController extends Controller
 {
     public function __invoke($id)
     {
-
         $post = Post::findOrFail($id);
-        return response()->json(['data' => $post]);
-
+        return response()->
+        json(['data' => $post]);
     }
 }

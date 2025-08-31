@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Api\v1\Admin\Post;
 
 use App\Http\Controllers\Controller;
+use App\Models\Post;
 use App\Service\PostService;
+
 
 class BaseController extends Controller
 {
@@ -13,3 +15,5 @@ class BaseController extends Controller
         $this->service = $service;
     }
 }
+
+

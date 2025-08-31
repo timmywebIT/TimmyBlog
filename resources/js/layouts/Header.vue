@@ -18,7 +18,9 @@
                         </div>
                         <div class="col-8 text-center">
                             <ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu mx-auto">
-                                <li class="active"><a href="#">Главная</a></li>
+                                <router-link :to="{name: 'main.home'}" class="text-white">
+                                    <li class="active"><a>Главная</a></li>
+                                </router-link>
                                 <li class="active"><a href="#">Портфолио</a></li>
                             </ul>
                         </div>

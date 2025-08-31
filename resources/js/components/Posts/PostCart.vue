@@ -9,6 +9,9 @@
                     <img :src="getImageURL(post.main_image)" alt="Картинка поста" class="w-full h-auto rounded shadow"/>
                     <h2 class="post-cart-title">{{ post.title }}</h2>
                 </router-link>
+                <div v-for="tag in post.tags" :key="tag.id" class="tag">
+                    {{ tag.title }}
+                </div>
             </div>
         </div>
         <div>
@@ -17,7 +20,7 @@
 </template>
 
 <script setup>
-import {usePostStore} from "../stores/post.js";
+import {usePostStore} from "../../stores/post.js";
 import {onMounted} from "vue";
 
 defineOptions({

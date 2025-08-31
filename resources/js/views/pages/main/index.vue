@@ -7,7 +7,7 @@
 </template>
 
 <script setup>
-import PostCart from "../../../components/PostCart.vue";
+import PostCart from "../../../components/Posts/PostCart.vue";
 
 defineOptions({
     name: "Index",

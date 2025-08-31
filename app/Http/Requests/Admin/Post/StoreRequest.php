@@ -19,15 +19,16 @@ class StoreRequest extends FormRequest
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
+
+
     public function rules(): array
     {
         return [
             'title' => 'required|string',
             'content' => 'required|string',
-            'main_image' => 'required|file',
+            'main_image' => 'nullable|file',
             'category_id' => 'required|exists:categories,id',
             'tag_ids' => 'nullable|array',
-            'tag_ids.*' => 'nullable|integer|exists:tags,id'
         ];
     }
 
@@ -37,4 +38,6 @@ class StoreRequest extends FormRequest
             'title.required' => 'Укажите название тайтла',
         ];
     }
+
+
 }

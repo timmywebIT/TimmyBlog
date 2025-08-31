@@ -10,6 +10,7 @@ class PostService
 {
     public  function store(StoreRequest $request, $data,)
     {
+        dd($data);
         try {
             Db::beginTransaction();
             $tagIds = $data['tag_ids'] ?? [];

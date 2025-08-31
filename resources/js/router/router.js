@@ -28,6 +28,12 @@ const router = createRouter({
             component: () => import('../views/pages/admin/posts/create.vue'),
             name: 'admin.posts.create'
         },
+        {
+            path: '/admin/tags',
+            component: () => import('../views/pages/admin/tags/index.vue'),
+            name: 'admin.tags.index'
+        },
+
     ]
 })
 
