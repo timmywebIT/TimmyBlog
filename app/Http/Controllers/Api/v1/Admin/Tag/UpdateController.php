@@ -3,15 +3,20 @@
 namespace App\Http\Controllers\Api\v1\Admin\Tag;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\Tag\StoreRequest;
+use App\Http\Requests\Admin\Tag\UpdateRequest;
 use App\Models\Tag;
-use function Pest\Laravel\json;
+
 
 class UpdateController extends Controller
 {
-    public function __invoke(StoreRequest $request)
+    public function __invoke(UpdateRequest $request, Tag $tag)
     {
-       return response()->json('Тут');
+        $data = $request->validated();
+        $tag->update($data);
+       return response()->json([
+           'success' => true,
+           'tag' => $tag
+       ]);
     }
 }
 

@@ -29,6 +29,21 @@ export const useTagStore = defineStore('tags', {
             } catch (error) {
                 console.error(error);
             }
+        },
+        async updateTag() {
+            try {
+                await axios.patch(`/api/v1/tags/${this.tag.id}`, this.tag);
+            } catch (error) {
+                console.error(error);
+            }
+        },
+        async deleteTag(tag) {
+            try {
+               await axios.delete(`/api/v1/tags/${tag.id}`)
+                this.tags = this.tags.filter(tagItem => tagItem.id !== tag.id)
+            } catch (error) {
+                console.error(error);
+            }
         }
     },
 })
