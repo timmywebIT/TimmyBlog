@@ -1,22 +1,22 @@
 <template>
-    <div v-if="tagStore.isModelOpen" @click="tagStore.isModelOpen = false">
+    <div v-if="categoryStore.isModelOpen" @click="categoryStore.isModelOpen = false">
             <Modal></Modal>
     </div>
     <div class="flex gap-4">
         <AdminLayout></AdminLayout>
         <div class="p-5 mt-4">
-            <InputForm v-model="tagStore.tag.title" placeholder="Введите название тега" type="text"></InputForm>
-            <div v-for="tag in tagStore.tags" class="flex mt-2 justify-between align-items-center">
-                {{ tag.title }}
+            <InputForm v-model="categoryStore.newCategory.title" placeholder="Введите название тега" type="text"></InputForm>
+            <div v-for="category in categoryStore.categories" class="flex mt-2 justify-between align-items-center">
+                {{ category.title }}
                 <div class="flex ml-10">
-                    <div @click="tagStore.editTag(tag)">
+                    <div @click="categoryStore.editCategory(category)">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                              stroke="currentColor" class="size-4">
                             <path stroke-linecap="round" stroke-linejoin="round"
                                   d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125"/>
                         </svg>
                     </div>
-                    <div @click="tagStore.deleteTag(tag)" class="cursor-pointer">
+                    <div @click="categoryStore.deleteCategory(category)" class="cursor-pointer">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                              stroke="currentColor" class="size-4">
                             <path stroke-linecap="round" stroke-linejoin="round"
@@ -25,29 +25,29 @@
                     </div>
                 </div>
             </div>
-            <ButtonAccept @click.prevent="tagStore.storeTag">Создать тэг</ButtonAccept>
+            <ButtonAccept @click.prevent="categoryStore.storeCategory">Создать категорию</ButtonAccept>
         </div>
     </div>
 </template>
 
 <script setup>
+import {onMounted} from "vue"
+import {useCategoryStore} from "../../../../stores/category.js";
 import AdminLayout from "../../../../layouts/AdminLayout.vue";
 import ButtonAccept from "../../../../components/Buttons/ButtonAccept.vue";
-import {useTagStore} from "../../../../stores/tag.js";
-import {onMounted} from "vue"
 import InputForm from "../../../../components/Forms/InputForm.vue";
 import Modal from "../../../../components/Forms/Modal.vue";
+
 
 defineOptions({
     name: 'Index',
 })
 
 onMounted(() => {
-    tagStore.getTags()
+    categoryStore.getCategories()
 })
 
-
-const tagStore = useTagStore();
+const categoryStore = useCategoryStore();
 
 </script>
 

@@ -33,6 +33,11 @@ const router = createRouter({
             component: () => import('../views/pages/admin/tags/index.vue'),
             name: 'admin.tags.index'
         },
+        {
+            path: '/admin/categories',
+            component: () => import('../views/pages/admin/categories/index.vue'),
+            name: 'admin.categories.index'
+        },
 
     ]
 })

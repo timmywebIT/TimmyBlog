@@ -21,7 +21,6 @@
                                 <router-link :to="{name: 'main.home'}" class="text-white">
                                     <li class="active"><a>Главная</a></li>
                                 </router-link>
-                                <li class="active"><a href="#">Портфолио</a></li>
                             </ul>
                         </div>
                     </div>

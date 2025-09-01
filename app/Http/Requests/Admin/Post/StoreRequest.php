@@ -32,12 +32,4 @@ class StoreRequest extends FormRequest
         ];
     }
 
-    public  function messages(): array
-    {
-        return [
-            'title.required' => 'Укажите название тайтла',
-        ];
-    }
-
-
 }
