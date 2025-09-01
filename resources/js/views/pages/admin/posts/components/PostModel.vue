@@ -11,7 +11,7 @@
         </div>
         <div class="mb-4">
             <h3>Выберите категорию</h3>
-            <PostCategoriesList @selected="postStore.categoryId = $event"></PostCategoriesList>
+            <PostCategoriesList @selected="postStore.categoryID = $event" />
         </div>
         <div>
             <h3>Выберите тег</h3>

@@ -1,25 +1,26 @@
 <template>
-    <select v-model="selecValue">
-        <option v-for="category in categoryStore.categories">
+    <select v-model="selectedId" @change="emitSelected">
+        <option disabled value="">Выберите категорию</option>
+        <option v-for="category in categoryStore.categories" :key="category.id" :value="category.id">
             {{ category.title }}
         </option>
     </select>
 </template>
 
-
 <script setup>
-import { onMounted } from 'vue'
-import {useCategoryStore} from "../../../../../stores/category.js";
+import { ref, onMounted } from 'vue'
+import { useCategoryStore } from '../../../../../stores/category.js'
+
+const emit = defineEmits(['selected'])
+const selectedId = ref('')
+
+const categoryStore = useCategoryStore()
 
 onMounted(() => {
     categoryStore.getCategories()
 })
 
-const categoryStore = useCategoryStore();
-
-
+function emitSelected() {
+    emit('selected', Number(selectedId.value))
+}
 </script>
-
-<style scoped>
-
-</style>

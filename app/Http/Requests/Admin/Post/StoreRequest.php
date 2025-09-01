@@ -29,7 +29,7 @@ class StoreRequest extends FormRequest
             'main_image' => 'nullable|file|image|mimes:jpg,jpeg,png',
             'category_id' => 'nullable|exists:categories,id',
             'tag_ids' => 'nullable|array',
-//            'tag_ids.*' => 'integer|exists:tags,id',
+           'tag_ids.*' => 'integer|exists:tags,id',
         ];
     }
 
