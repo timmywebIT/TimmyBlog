@@ -1,14 +1,14 @@
 <template>
     <div v-if="categoryStore.isModelOpen">
-        <Modal @close="categoryStore.isModelOpen = false">
-            <InputForm v-model="categoryStore.category.title" placeholder="Название категории" />
+        <FormModal @close="categoryStore.isModelOpen = false">
+            <FormInput v-model="categoryStore.category.title" placeholder="Название категории" />
             <ButtonAccept @click="categoryStore.updateCategory">Обновить категорию</ButtonAccept>
-        </Modal>
+        </FormModal>
     </div>
     <div class="flex gap-4">
         <AdminLayout></AdminLayout>
         <div class="p-5 mt-4">
-            <InputForm v-model="categoryStore.newCategory.title" placeholder="Введите название категории" type="text"></InputForm>
+            <FormInput v-model="categoryStore.newCategory.title" placeholder="Введите название категории" type="text"></FormInput>
             <div v-for="category in categoryStore.categories" class="flex mt-2 justify-between align-items-center">
                 {{ category.title }}
                 <div class="flex ml-10">
@@ -38,8 +38,8 @@ import {onMounted} from "vue"
 import {useCategoryStore} from "../../../../stores/category.js";
 import AdminLayout from "../../../../layouts/AdminLayout.vue";
 import ButtonAccept from "../../../../components/Buttons/ButtonAccept.vue";
-import InputForm from "../../../../components/Forms/InputForm.vue";
-import Modal from "../../../../components/Forms/Modal.vue";
+import FormInput from "../../../../components/Forms/FormInput.vue";
+import FormModal from "../../../../components/Forms/FormModal.vue";
 
 
 defineOptions({

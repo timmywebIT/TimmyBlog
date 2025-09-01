@@ -1,14 +1,14 @@
 <template>
     <div v-if="tagStore.isModelOpen">
-        <Modal @close="tagStore.isModelOpen = false">
-            <InputForm v-model="tagStore.tag.title" placeholder="Название тега" />
+        <FormModal @close="tagStore.isModelOpen = false">
+            <FormInput v-model="tagStore.tag.title" placeholder="Название тега" />
             <ButtonAccept @click="tagStore.updateTag">Обновить тэг</ButtonAccept>
-        </Modal>
+        </FormModal>
     </div>
     <div class="flex gap-4">
         <AdminLayout></AdminLayout>
         <div class="p-5 mt-4">
-            <InputForm v-model="tagStore.newTag.title" placeholder="Введите название тега" type="text"></InputForm>
+            <FormInput v-model="tagStore.newTag.title" placeholder="Введите название тега" type="text"></FormInput>
             <div v-for="tag in tagStore.tags" class="flex mt-2 justify-between align-items-center">
                 {{ tag.title }}
                 <div class="flex ml-10">
@@ -38,8 +38,8 @@ import AdminLayout from "../../../../layouts/AdminLayout.vue";
 import ButtonAccept from "../../../../components/Buttons/ButtonAccept.vue";
 import {useTagStore} from "../../../../stores/tag.js";
 import {onMounted} from "vue"
-import InputForm from "../../../../components/Forms/InputForm.vue";
-import Modal from "../../../../components/Forms/Modal.vue";
+import FormInput from "../../../../components/Forms/FormInput.vue";
+import FormModal from "../../../../components/Forms/FormModal.vue";
 
 defineOptions({
     name: 'Index',

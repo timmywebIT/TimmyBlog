@@ -3,7 +3,7 @@
 </template>
 
 <script setup lang="ts">
-import Modal from "../../../../components/Forms/Modal.vue";
+import FormModal from "../../../../components/Forms/FormModal.vue";
 
 </script>
 
