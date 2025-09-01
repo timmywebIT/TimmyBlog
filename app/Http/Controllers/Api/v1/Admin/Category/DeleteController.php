@@ -14,7 +14,7 @@ class DeleteController extends Controller
         $category->delete();
         return response()->json([
             'success' => true,
-            'tag' => $category
+            '$category' => $category
         ]);
     }
 }

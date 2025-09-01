@@ -1,21 +1,12 @@
 <template>
     <div class="modal-shadow" @click.self="$emit('close')">
         <div @click.stop>
-            <InputForm v-if="tagStore.tag" v-model="tagStore.tag.title" placeholder="Название тега" />
-            <ButtonAccept @click="tagStore.updateTag">Обновить тэг</ButtonAccept>
+            <slot />
         </div>
         </div>
 </template>
 
 <script setup>
-import InputForm from "./InputForm.vue";
-import ButtonAccept from "../Buttons/ButtonAccept.vue"
-import {useTagStore} from "../../stores/tag.js";
-
-
-
-const tagStore = useTagStore();
-
 </script>
 
 <style scoped>

@@ -1,11 +1,14 @@
 <template>
-    <div v-if="categoryStore.isModelOpen" @click="categoryStore.isModelOpen = false">
-            <Modal></Modal>
+    <div v-if="categoryStore.isModelOpen">
+        <Modal @close="categoryStore.isModelOpen = false">
+            <InputForm v-model="categoryStore.category.title" placeholder="Название категории" />
+            <ButtonAccept @click="categoryStore.updateCategory">Обновить категорию</ButtonAccept>
+        </Modal>
     </div>
     <div class="flex gap-4">
         <AdminLayout></AdminLayout>
         <div class="p-5 mt-4">
-            <InputForm v-model="categoryStore.newCategory.title" placeholder="Введите название тега" type="text"></InputForm>
+            <InputForm v-model="categoryStore.newCategory.title" placeholder="Введите название категории" type="text"></InputForm>
             <div v-for="category in categoryStore.categories" class="flex mt-2 justify-between align-items-center">
                 {{ category.title }}
                 <div class="flex ml-10">

@@ -28,7 +28,7 @@ export const useCategoryStore = defineStore('categories', {
         },
         async storeCategory() {
             try {
-                await axios.post('/api/v1/tags', this.newCategory);
+                await axios.post('/api/v1/categories', this.newCategory);
                 this.newCategory.title = '';
                 await this.getCategories();
             } catch (error) {
@@ -37,7 +37,7 @@ export const useCategoryStore = defineStore('categories', {
         },
         async updateCategory() {
             try {
-                await axios.patch(`/api/v1/tags/${this.category.id}`, this.category);
+                await axios.patch(`/api/v1/categories/${this.category.id}`, this.category);
                 await this.getCategories();
                 this.isModelOpen = false;
             } catch (error) {
@@ -46,8 +46,8 @@ export const useCategoryStore = defineStore('categories', {
         },
         async deleteCategory(category) {
             try {
-               await axios.delete(`/api/v1/tags/${category.id}`)
-                this.categories = this.categories.filter(category => category.id !== category.id)
+               await axios.delete(`/api/v1/categories/${category.id}`)
+                this.categories = this.categories.filter(categoryItem => categoryItem.id !== category.id)
             } catch (error) {
                 console.error(error)
             }

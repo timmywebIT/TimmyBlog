@@ -1,6 +1,9 @@
 <template>
-    <div v-if="tagStore.isModelOpen" @click="tagStore.isModelOpen = false">
-            <Modal></Modal>
+    <div v-if="tagStore.isModelOpen">
+        <Modal @close="tagStore.isModelOpen = false">
+            <InputForm v-model="tagStore.tag.title" placeholder="Название тега" />
+            <ButtonAccept @click="tagStore.updateTag">Обновить тэг</ButtonAccept>
+        </Modal>
     </div>
     <div class="flex gap-4">
         <AdminLayout></AdminLayout>
