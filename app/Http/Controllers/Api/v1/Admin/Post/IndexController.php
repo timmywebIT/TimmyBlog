@@ -10,7 +10,9 @@ class IndexController extends BaseController
 {
     public function __invoke()
     {
-        return Post::all();
+        return response()->json([
+                'data' => Post::all()
+            ]);
     }
 }
 

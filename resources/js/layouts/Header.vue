@@ -12,12 +12,13 @@
             <div class="menu-bg-wrap">
                 <div class="site-navigation">
                     <div class="row g-0 align-items-center">
-                        <router-link :to="{name: 'main.home'}">
                         <div class="col-2">
+                            <router-link :to="{name: 'main.home'}">
                             <a href="#" class="logo m-0 float-start">TimmyBlog<span
                                 class="text-primary">.</span></a>
+                            </router-link>
                         </div>
-                        </router-link>
+
                     </div>
                 </div>
             </div>

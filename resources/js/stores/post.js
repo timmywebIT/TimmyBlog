@@ -5,7 +5,12 @@ import {useRoute} from "vue-router";
 export const usePostStore = defineStore('posts', {
     state: () => ({
         posts: [],
-        post: {}
+        post: {},
+        title:'',
+        content: '',
+        image: null,
+        categoryID: null,
+        tagIds:[]
     }),
 
     getters: {
@@ -17,6 +22,7 @@ export const usePostStore = defineStore('posts', {
             try {
                 const res = await axios.get("/api/v1/posts")
                 this.posts = res.data.data
+
             } catch (error) {
                 console.log('Не удалось загрузить посты', error)
             }
@@ -38,7 +44,7 @@ export const usePostStore = defineStore('posts', {
         },
         async updatePost() {
            try {
-               axios.path(`/api/v1/posts/${this.post.id}`, this.post)
+               axios.patсh(`/api/v1/posts/${this.post.id}`, this.post)
            } catch (error) {
                console.log('Не удалось обновить пост', error)
            }
@@ -46,10 +52,10 @@ export const usePostStore = defineStore('posts', {
         async deletePost(post) {
             try {
                  axios.delete(`/api/v1/posts/${post.id}`)
-                this.posts = this.posts.filter(post => post.id !== post.id)
+                this.posts = this.posts.filter(p => p.id !== post.id)
             } catch (error) {
                 console.log('Пост не удалился', error)
             }
-        }
-    },
+        },
+    }
 })

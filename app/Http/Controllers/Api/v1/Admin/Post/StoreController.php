@@ -11,11 +11,7 @@ class StoreController extends BaseController
 {
     public function __invoke(StoreRequest $request)
     {
-//        $data = $request->validated();
-
-        return response()->json([
-            'validated' => $request->validated()
-        ]);
+        $data = $request->validated();
 
         $post = $this->service->store($request, $data);
 
