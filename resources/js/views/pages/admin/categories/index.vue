@@ -5,7 +5,7 @@
     <div class="flex gap-4">
         <AdminLayout></AdminLayout>
         <div class="p-5 mt-4">
-            <InputForm v-model="tagStore.newTag.title" placeholder="Введите название тега" type="text"></InputForm>
+            <InputForm v-model="tagStore.tag.title" placeholder="Введите название тега" type="text"></InputForm>
             <div v-for="tag in tagStore.tags" class="flex mt-2 justify-between align-items-center">
                 {{ tag.title }}
                 <div class="flex ml-10">
@@ -44,7 +44,6 @@ defineOptions({
 
 onMounted(() => {
     tagStore.getTags()
-    tagStore.tag.title = ''
 })
 
 

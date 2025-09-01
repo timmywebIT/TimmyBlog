@@ -20,7 +20,7 @@
 </template>
 
 <script setup>
-import {usePostStore} from "../../stores/post.js";
+import {usePostStore} from "../../../../../stores/post.js";
 import {onMounted} from "vue";
 
 defineOptions({
