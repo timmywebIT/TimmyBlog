@@ -34,10 +34,10 @@
 </template>
 
 <script setup>
+import {onMounted} from "vue"
 import AdminLayout from "../../../../layouts/AdminLayout.vue";
 import ButtonAccept from "../../../../components/Buttons/ButtonAccept.vue";
 import {useTagStore} from "../../../../stores/tag.js";
-import {onMounted} from "vue"
 import FormInput from "../../../../components/Forms/FormInput.vue";
 import FormModal from "../../../../components/Forms/FormModal.vue";
 
@@ -49,7 +49,6 @@ onMounted(() => {
     tagStore.getTags()
     tagStore.tag.title = ''
 })
-
 
 const tagStore = useTagStore();
 

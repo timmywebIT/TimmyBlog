@@ -13,6 +13,7 @@ export const useCategoryStore = defineStore('categories', {
             title: ''
         },
         isModelOpen: false,
+        selectedId: null
     }),
 
     getters: {},

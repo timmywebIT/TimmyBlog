@@ -20,7 +20,6 @@ onMounted(() => {
     tagStore.getTags()
 })
 
-
 const tagStore = useTagStore();
 
 </script>

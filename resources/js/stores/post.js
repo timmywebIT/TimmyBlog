@@ -5,12 +5,13 @@ import {useRoute} from "vue-router";
 export const usePostStore = defineStore('posts', {
     state: () => ({
         posts: [],
-        post: {},
-        title:'',
-        content: '',
-        image: null,
-        categoryID: null,
-        tagIds:[]
+        post: {
+            title:'',
+            content: '',
+            image: null,
+            categoryID: null,
+            tagIds:[]
+        },
     }),
 
     getters: {
@@ -37,9 +38,34 @@ export const usePostStore = defineStore('posts', {
         },
         async storePost() {
             try {
-                axios.post(`/api/v1/posts`, this.post)
+                const formData = new FormData();
+
+                formData.append('title', this.post.title);
+                formData.append('content', this.post.content);
+
+                if (this.post.image) {
+                    formData.append('main_image', this.post.image);
+                }
+
+                if (this.post.categoryID) {
+                    formData.append('category_id', this.post.categoryID);
+                    console.log('Данных нет')
+                }
+
+                if (this.post.tagIds.length > 0) {
+                    this.post.tagIds.forEach(tagId => {
+                        formData.append('tag_ids[]', tagId);
+                    });
+                }
+                const res = await axios.post('/api/v1/posts', formData, {
+                    headers: {
+                        'Content-Type': 'multipart/form-data',
+                        'Accept': 'application/json'
+                    }
+                });
+                console.log('Пост создан:', res.data);
             } catch (error) {
-                console.log('Не удалось создать пост', error)
+                console.error('Ошибка при создании поста:', error.response?.data || error.message);
             }
         },
         async updatePost() {
@@ -57,47 +83,5 @@ export const usePostStore = defineStore('posts', {
                 console.log('Пост не удалился', error)
             }
         },
-        async createPost() {
-            try {
-                const formData = new FormData();
-
-                formData.append('title', this.title);
-                formData.append('content', this.content);
-
-                if (this.image) {
-                    formData.append('main_image', this.image); // имя поля должно совпадать с Laravel
-                }
-
-                if (this.categoryID) {
-                    formData.append('category_id', this.categoryID);
-                    console.log('Данных нет')
-                }
-
-                if (this.tagIds.length > 0) {
-                    this.tagIds.forEach(tagId => {
-                        formData.append('tag_ids[]', tagId);
-                    });
-                }
-                console.log('Отправка поста:', {
-                    title: this.title,
-                    content: this.content,
-                    category_id: this.categoryID,
-                    image: this.image,
-                    tag_ids: this.tagIds
-                });
-
-                const res = await axios.post('/api/v1/posts', formData, {
-                    headers: {
-                        'Content-Type': 'multipart/form-data',
-                        'Accept': 'application/json'
-                    }
-                });
-
-
-                console.log('Пост создан:', res.data);
-            } catch (error) {
-                console.error('Ошибка при создании поста:', error.response?.data || error.message);
-            }
-        }
     }
 })
