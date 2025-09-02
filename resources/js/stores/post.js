@@ -15,7 +15,6 @@ export const usePostStore = defineStore('posts', {
     }),
 
     getters: {
-
     },
 
     actions: {
@@ -67,13 +66,6 @@ export const usePostStore = defineStore('posts', {
             } catch (error) {
                 console.error('Ошибка при создании поста:', error.response?.data || error.message);
             }
-        },
-        async updatePost() {
-           try {
-               axios.patсh(`/api/v1/posts/${this.post.id}`, this.post)
-           } catch (error) {
-               console.log('Не удалось обновить пост', error)
-           }
         },
         async deletePost(post) {
             try {

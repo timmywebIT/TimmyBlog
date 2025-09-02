@@ -23,7 +23,6 @@ export const useTagStore = defineStore('tags', {
             try {
                 const res = await axios.get('/api/v1/tags');
                 this.tags = res.data.data;
-
             } catch (error) {
                 console.error(error);
             }
@@ -58,8 +57,5 @@ export const useTagStore = defineStore('tags', {
             this.tag = { ...tag }
             this.isModelOpen = true;
         },
-        syncSelectedTag() {
-            this.selectedTags = this.selectedTags.map(selected => this.tags.find(tag => tag.id === selected.id)).filter(Boolean);
-        }
     },
 })

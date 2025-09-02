@@ -21,13 +21,7 @@
                             {{ post.title }}
                         </th>
                         <td class="px-6 py-4">
-                            <div>
-                                Изменить
-                            </div>
-                            <div>
-                                Посмотреть
-                            </div>
-                            <div>
+                            <div @click="postStore.deletePost(post)" class="cursor-pointer">
                                 Удалить
                             </div>
                         </td>
@@ -41,7 +35,6 @@
             </div>
             </router-link>
         </div>
-
     </div>
 </template>
 

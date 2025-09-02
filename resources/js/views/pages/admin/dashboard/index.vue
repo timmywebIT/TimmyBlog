@@ -1,5 +1,6 @@
 <template>
     <AdminLayout></AdminLayout>
+
 </template>
 
 <script setup>

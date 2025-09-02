@@ -12,7 +12,13 @@ import { ref, onMounted } from 'vue'
 import { useCategoryStore } from '../../../../../stores/category.js'
 
 const emit = defineEmits(['selected'])
-const selectedId = ref('')
+const props = defineProps({
+    selected: {
+        type: [String, Number],
+        default: ''
+    }
+})
+const selectedId = ref(props.selected)
 
 const categoryStore = useCategoryStore()
 
