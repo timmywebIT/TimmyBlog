@@ -1,8 +1,0 @@
-<?php
-
-
-use App\Http\Controllers\Api\v1\Admin\Post\StoreController;
-use App\Http\Controllers\Api\v1\Main\IndexController;
-use App\Http\Controllers\Api\v1\Main\ShowPostController;
-
-use Illuminate\Support\Facades\Route;

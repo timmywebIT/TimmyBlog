@@ -47,9 +47,8 @@ const postStore = usePostStore()
     justify-content: center;
 }
 
-
 .post-card {
-    flex: 0 1 calc(33.333% - 2em); /* 3 карточки в ряд с отступами */
+    flex: 0 1 calc(33.333% - 2em);
     box-sizing: border-box;
     padding: 1em;
     border-radius: 5px;

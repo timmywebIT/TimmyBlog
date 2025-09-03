@@ -6,16 +6,15 @@ export const usePostStore = defineStore('posts', {
     state: () => ({
         posts: [],
         post: {
-            title:'',
+            title: '',
             content: '',
             image: null,
             categoryID: null,
-            tagIds:[]
+            tagIds: []
         },
     }),
 
-    getters: {
-    },
+    getters: {},
 
     actions: {
         async getPosts() {
@@ -38,19 +37,15 @@ export const usePostStore = defineStore('posts', {
         async storePost() {
             try {
                 const formData = new FormData();
-
                 formData.append('title', this.post.title);
                 formData.append('content', this.post.content);
-
                 if (this.post.image) {
                     formData.append('main_image', this.post.image);
                 }
-
                 if (this.post.categoryID) {
                     formData.append('category_id', this.post.categoryID);
                     console.log('Данных нет')
                 }
-
                 if (this.post.tagIds.length > 0) {
                     this.post.tagIds.forEach(tagId => {
                         formData.append('tag_ids[]', tagId);
@@ -69,7 +64,7 @@ export const usePostStore = defineStore('posts', {
         },
         async deletePost(post) {
             try {
-                 axios.delete(`/api/v1/posts/${post.id}`)
+                axios.delete(`/api/v1/posts/${post.id}`)
                 this.posts = this.posts.filter(p => p.id !== post.id)
             } catch (error) {
                 console.log('Пост не удалился', error)

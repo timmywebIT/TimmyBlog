@@ -47,5 +47,4 @@ const postStore = usePostStore()
     font-size: 20px;
 }
 
-
 </style>

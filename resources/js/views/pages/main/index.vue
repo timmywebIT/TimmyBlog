@@ -3,7 +3,6 @@
         <h1 class="w-full text-center font-bold font-ariel title">👋 Hello, it`s my blog</h1>
         <PostCart></PostCart>
     </div>
-
 </template>
 
 <script setup>
