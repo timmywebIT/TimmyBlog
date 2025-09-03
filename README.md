@@ -23,3 +23,15 @@
 | POST  | /v1/posts       | Создать новый пост          |
 | GET   | /v1/categories  | Получить список категорий   |
 | GET   | /v1/tags        | Получить список тегов       |
+
+## 🔄 Действия (Actions)
+```js
+async getPosts() {
+  try {
+    const res = await axios.get("/api/v1/posts")
+    this.posts = res.data.data
+  } catch (error) {
+    console.log('Не удалось загрузить посты', error)
+  }
+}
+```
