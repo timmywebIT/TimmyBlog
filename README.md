@@ -8,6 +8,7 @@
 | Бэкенд           | REST API, Validation,                                 |
 | Фронтенд         | Pinia, Vue Router, Composition API, Tailwind CSS                           |
 | Базы данных      | MySQL                                                 |
+| AJAX / HTTP      | Axios                                                 |
 
 ## ✨ Фичи
 
